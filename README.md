@@ -18,7 +18,7 @@ To install Postman, follow these steps:
 
 ## API List
 
-The `Api_Export.json` file contains the following APIs:
+The `API_Export.json` file contains the following APIs:
 
 - `GET /learn/api/public/v1/lti/domains`: Returns a list of LTI Domains.
 - `POST /learn/api/public/v1/lti/domains`: Creates an LTI domain.
@@ -28,7 +28,7 @@ The `Api_Export.json` file contains the following APIs:
 
 ## Usage
 
-After importing the `Api_Export.json` file into Postman, you can use the APIs by sending requests to them. Ensure to set up the environment variables correctly:
+After importing the `API_Export.json` file into Postman, you can use the APIs by sending requests to them. Ensure to set up the environment variables correctly:
 
 - `$LEARN_DOMAIN`: Learn Server FQDN
 - `$APP_KEY`: Your application key here
