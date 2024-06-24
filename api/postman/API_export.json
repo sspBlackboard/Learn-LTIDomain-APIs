@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "8e84a03b-8b20-4bae-bdb0-d5862e0cfdc4",
+		"name": "Learn-Apis-LTIDomain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23304628"
+	},
+	"item": [
+		{
+			"name": "learn-get-token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{domain}}/learn/api/public/v1/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"learn",
+						"api",
+						"public",
+						"v1",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "learn-get-domain",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{domain}}/learn/api/public/v1/lti/domains/{{domainId-get}}",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"learn",
+						"api",
+						"public",
+						"v1",
+						"lti",
+						"domains",
+						"{{domainId-get}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "learn-get-all-domains",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{domain}}/learn/api/public/v1/lti/domains",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"learn",
+						"api",
+						"public",
+						"v1",
+						"lti",
+						"domains"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "learn-post-domain",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"primaryDomain\": \"test-domain\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{domain}}/learn/api/public/v1/lti/domains",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"learn",
+						"api",
+						"public",
+						"v1",
+						"lti",
+						"domains"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "learn-delete-domain",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://{{domain}}/learn/api/public/v1/lti/domains/{{domainId-delete}}",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"learn",
+						"api",
+						"public",
+						"v1",
+						"lti",
+						"domains",
+						"{{domainId-delete}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "learn-patch-domain",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customParameters\": {\"test\": \"test\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{domain}}/learn/api/public/v1/lti/domains/{{domainId-patch}}",
+					"protocol": "https",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"learn",
+						"api",
+						"public",
+						"v1",
+						"lti",
+						"domains",
+						"{{domainId-patch}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "username",
+			"value": "$APP_KEY",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "$APP_SECRET",
+			"type": "string"
+		},
+		{
+			"key": "authorization",
+			"value": "$ACCESSTOKEN",
+			"type": "string"
+		},
+		{
+			"key": "domain",
+			"value": "$LEARN_DOMAIN",
+			"type": "string"
+		},
+		{
+			"key": "domainId-get",
+			"value": "$DOMAIN_ID_GET",
+			"type": "string"
+		},
+		{
+			"key": "domainId-delete",
+			"value": "$DOMAIN_ID_DELETE",
+			"type": "string"
+		},
+		{
+			"key": "domainId-patch",
+			"value": "$DOMAIN_ID_PATCH",
+			"type": "string"
+		}
+	]
+}
